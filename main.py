@@ -1,26 +1,23 @@
-# Come definire una classe
 class Item:
-    def calculate_total_price(self, x, y):
-        return x * y
+    def __init__(self, name: str, price: float, quantity=0):
+        assert price >= 0, f"Price {price} is not greater than or equal to zero!"
+        assert quantity >= 0, f"Quantity {quantity} is not greater or equal to zero!"
 
-# Come creare una istanza della classe
-item1 = Item()
+        #Nota, in alternativa, si possono usare le exceptions
+        #if price < 0: 
+        #    raise ValueError(f"Price {price} is not greater than or equal to zero!")
+        #if quantity < 0: 
+        #    raise ValueError(f"Quantity {quantity} is not greater than or equal to zero!")
 
-# come assegnare un attributo a quella classe
-item1.name = "Phone"
-item1.price = 100
-item1.quantity = 5
+        self.name = name
+        self.price = price
+        self.quantity = quantity
 
-# Chiamata ai metodi di quella particolare istanza:
-print(item1.calculate_total_price(item1.price, item1.quantity))
+    def calculate_total_price(self):
+        return self.price * self.quantity
 
-# Come creare una istanza della classe (Ne possiamo creare quante ne vogliamo)
-item2 = Item()
+item1 = Item("Phone", 100, 1)
+item2 = Item("Laptop", 1000, 3)
 
-# Assegnare gli attributi
-item2.name = "Laptop"
-item2.price = 1000
-item2.quantity = 3
-
-# Chiamata ai metodi di quella particolare istanza:
-print(item2.calculate_total_price(item2.price, item2.quantity))
+print(item1.calculate_total_price())
+print(item2.calculate_total_price())
