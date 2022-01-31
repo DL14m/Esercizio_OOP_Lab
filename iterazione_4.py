@@ -57,7 +57,6 @@ class Item:
         return cls
 
 
-
 # How to create an instance of a class
 item = Item("Phone", 100, 1)
 item = Item("Laptop", 1000, 3)
