@@ -56,6 +56,28 @@ class Item:
                 print(dict(row))
         return cls
 
+    class Phone:
+
+        def __init__(self, name:str, price:float, quantity=0, broken_phones=0):
+            #Check price and quantity
+            assert price >=0, f"Price {price} is too low!"
+            assert quantity >=0, f"Quantity {quantity} is too low!"
+            assert broken_phones >=0, f"Number of Broken Phones {broken_phones} is too low!"
+            
+            #Nota, in alternativa, si possono usare le exceptions
+            #if price < 0: 
+            #    raise ValueError(f"Price {price} is not greater than or equal to zero!")
+            #if quantity < 0: 
+            #    raise ValueError(f"Quantity {quantity} is not greater than or equal to zero!")
+
+            self.name = name
+            self.price = price
+            self.quantity = quantity
+            self.broken_phones = broken_phones
+
+            Item.all_items.append(self)
+
+
 
 # How to create an instance of a class
 item = Item("Phone", 100, 1)
